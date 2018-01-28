@@ -17,9 +17,9 @@ import com.example.pomingpo.few_customview.R;
  */
 
 public class CircleInsideHaveTextView1 extends View {
-    private final String textToShow;
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private String textToShow;
     private int noPaddingmeasureWidth;
     private int noPaddingmeasureHeight;
     private float presentage;
@@ -45,7 +45,7 @@ public class CircleInsideHaveTextView1 extends View {
         textPaint.setColor(getResources().getColor(R.color.dark));
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTextSize(innerTextSize);
-        textToShow = presentage + "%";
+
     }
 
     public float getPresentage() {
@@ -54,7 +54,9 @@ public class CircleInsideHaveTextView1 extends View {
 
     public void setPresentage(float presentage) {
         this.presentage = presentage;
+        requestLayout();
         invalidate();
+
     }
 
     @Override
@@ -110,13 +112,13 @@ public class CircleInsideHaveTextView1 extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
-        // TODO: 2018/1/28 calculate the min size= text_long+space+storkWidth*2
+        textToShow = presentage + "%";
+        // calculate the min size= text_long+space+storkWidth*2
         Rect result = new Rect();
         textPaint.getTextBounds(textToShow, 0, textToShow.length(), result);
-        float textLongSize=result.right-result.left;
-        float spaceBetweenTextAndStork=10;
-        int miniSize = (int) (textLongSize+spaceBetweenTextAndStork+storkWidth*2);
+        float textLongSize = result.right - result.left;
+        float spaceBetweenTextAndStork = 10;
+        int miniSize = (int) (textLongSize + spaceBetweenTextAndStork + storkWidth * 2);
 
 
         int measuredWidth = miniSize + getPaddingLeft() + getPaddingRight();
