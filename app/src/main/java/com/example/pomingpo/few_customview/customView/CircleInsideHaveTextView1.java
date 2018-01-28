@@ -3,6 +3,7 @@ package com.example.pomingpo.few_customview.customView;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -54,8 +55,13 @@ public class CircleInsideHaveTextView1 extends View {
         canvas.drawCircle(cx, cy, radius, paint);
 
 
+        String textToShow = presentage + "%";
         paint.setColor(getResources().getColor(R.color.dark));
-        canvas.drawText(presentage + "%", cx, cy, paint);
+        paint.setTextAlign(Paint.Align.CENTER);
+        Rect result = new Rect();
+        paint.getTextBounds(textToShow, 0, textToShow.length(), result);
+        int yOffset = result.height() / 2;
+        canvas.drawText(textToShow, cx, cy + yOffset, paint);
 
     }
 }
