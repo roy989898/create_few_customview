@@ -53,5 +53,9 @@ public class CircleInsideHaveTextView1 extends View {
         int radius = (right - left - storkWidth) / 2;
         canvas.drawCircle(cx, cy, radius, paint);
 
+
+        paint.setColor(getResources().getColor(R.color.dark));
+        canvas.drawText(presentage + "%", cx, cy, paint);
+
     }
 }
