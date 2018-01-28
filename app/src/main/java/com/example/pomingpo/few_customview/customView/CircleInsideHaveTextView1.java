@@ -18,6 +18,8 @@ import com.example.pomingpo.few_customview.R;
 public class CircleInsideHaveTextView1 extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int size = 150;
+    private int noPaddingmeasureWidth;
+    private int noPaddingmeasureHeight;
 
     public CircleInsideHaveTextView1(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -33,9 +35,10 @@ public class CircleInsideHaveTextView1 extends View {
         int storkWidth = 30;
         paint.setStyle(Paint.Style.FILL);
 
-        int left = 20;
+        size = noPaddingmeasureWidth;
+        int left = 0;
         int right = left + size;
-        int top = 100;
+        int top = 0;
         int bottom = top + size;
 
 
@@ -76,5 +79,17 @@ public class CircleInsideHaveTextView1 extends View {
  /*       paint.setColor(getResources().getColor(R.color.colorAccent));
         canvas.drawCircle(cx, cy, 5, paint);*/
 
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        int miniSize = 100;
+        int measuredWidth = miniSize + getPaddingLeft() + getPaddingRight();
+        measuredWidth = resolveSize(measuredWidth, widthMeasureSpec);
+        noPaddingmeasureWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
+        noPaddingmeasureHeight = noPaddingmeasureWidth;
+        int measuredHeight = noPaddingmeasureHeight + getPaddingBottom() + getPaddingTop();
+        setMeasuredDimension(measuredWidth, measuredHeight);
     }
 }
