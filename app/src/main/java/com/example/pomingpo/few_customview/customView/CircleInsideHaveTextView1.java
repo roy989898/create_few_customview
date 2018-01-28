@@ -49,8 +49,8 @@ public class CircleInsideHaveTextView1 extends View {
 
 
         paint.setColor(getResources().getColor(R.color.white));
-        int cx = right + (left - right) / 2;
-        int cy = top + (bottom - top) / 2;
+        float cx = right + (left - right) / 2f;
+        float cy = top + (bottom - top) / 2f;
         int radius = (right - left - storkWidth) / 2;
         canvas.drawCircle(cx, cy, radius, paint);
 
@@ -61,8 +61,20 @@ public class CircleInsideHaveTextView1 extends View {
         paint.setTextSize(25);
         Rect result = new Rect();
         paint.getTextBounds(textToShow, 0, textToShow.length(), result);
-        int yOffset = result.height() / 2;
-        canvas.drawText(textToShow, cx, cy + yOffset, paint);
+        float yOffset = result.bottom - result.top / 2f;
+        Paint.FontMetrics fm = paint.getFontMetrics();
+        canvas.drawText(textToShow, cx, cy + yOffset - fm.descent, paint);
+
+
+   /*     float x = fm.descent;
+        paint.setColor(getResources().getColor(R.color.colorPrimaryDark));
+        result.top += cy - x;
+        result.bottom += cy - x;
+        result.right += cx;
+        result.left += cx;
+        canvas.drawRect(result, paint);*/
+ /*       paint.setColor(getResources().getColor(R.color.colorAccent));
+        canvas.drawCircle(cx, cy, 5, paint);*/
 
     }
 }
