@@ -20,9 +20,7 @@ public class CircleInsideHaveTextView1 extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int noPaddingmeasureWidth;
     private int noPaddingmeasureHeight;
-    // TODO: 2018/1/28 set the % by xml and code
     private float presentage;
-    // TODO: 2018/1/28 set the stork by xml
     private float storkWidth;
     private float innerTextSize;
 
@@ -34,7 +32,7 @@ public class CircleInsideHaveTextView1 extends View {
                 0, 0);
 
         try {
-            presentage = a.getInteger(R.styleable.CircleInsideHaveTextView1_percentage, 0);
+            presentage = a.getFloat(R.styleable.CircleInsideHaveTextView1_percentage, 0);
             storkWidth = a.getDimension(R.styleable.CircleInsideHaveTextView1_storkWidth, 30);
             innerTextSize = a.getDimension(R.styleable.CircleInsideHaveTextView1_innerTextSize, 20);
         } finally {
