@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleInsideHaveTextView1">
+        <attr name="percentage" format="float"/>
+        <attr name="storkWidth" format="dimension"/>
+        <attr name="innerTextSize" format="dimension"/>
+    </declare-styleable>
+</resources>
