@@ -17,7 +17,9 @@ import com.example.pomingpo.few_customview.R;
  */
 
 public class CircleInsideHaveTextView1 extends View {
+    private final String textToShow;
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private int noPaddingmeasureWidth;
     private int noPaddingmeasureHeight;
     private float presentage;
@@ -38,6 +40,12 @@ public class CircleInsideHaveTextView1 extends View {
         } finally {
             a.recycle();
         }
+
+
+        textPaint.setColor(getResources().getColor(R.color.dark));
+        textPaint.setTextAlign(Paint.Align.CENTER);
+        textPaint.setTextSize(innerTextSize);
+        textToShow = presentage + "%";
     }
 
     public float getPresentage() {
@@ -77,19 +85,15 @@ public class CircleInsideHaveTextView1 extends View {
         paint.setColor(getResources().getColor(R.color.white));
         float cx = right + (left - right) / 2f;
         float cy = top + (bottom - top) / 2f;
-        float radius = (right - left - storkWidth*2) / 2f;
+        float radius = (right - left - storkWidth * 2) / 2f;
         canvas.drawCircle(cx, cy, radius, paint);
 
 
-        String textToShow = presentage + "%";
-        paint.setColor(getResources().getColor(R.color.dark));
-        paint.setTextAlign(Paint.Align.CENTER);
-        paint.setTextSize(innerTextSize);
         Rect result = new Rect();
-        paint.getTextBounds(textToShow, 0, textToShow.length(), result);
+        textPaint.getTextBounds(textToShow, 0, textToShow.length(), result);
         float yOffset = result.bottom - result.top / 2f;
-        Paint.FontMetrics fm = paint.getFontMetrics();
-        canvas.drawText(textToShow, cx, cy + yOffset - fm.descent, paint);
+        Paint.FontMetrics fm = textPaint.getFontMetrics();
+        canvas.drawText(textToShow, cx, cy + yOffset - fm.descent, textPaint);
 
 
    /*     float x = fm.descent;
@@ -107,7 +111,14 @@ public class CircleInsideHaveTextView1 extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        int miniSize = 100;
+        // TODO: 2018/1/28 calculate the min size= text_long+space+storkWidth*2
+        Rect result = new Rect();
+        textPaint.getTextBounds(textToShow, 0, textToShow.length(), result);
+        float textLongSize=result.right-result.left;
+        float spaceBetweenTextAndStork=10;
+        int miniSize = (int) (textLongSize+spaceBetweenTextAndStork+storkWidth*2);
+
+
         int measuredWidth = miniSize + getPaddingLeft() + getPaddingRight();
         measuredWidth = resolveSize(measuredWidth, widthMeasureSpec);
         noPaddingmeasureWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
