@@ -58,6 +58,7 @@ public class CircleInsideHaveTextView1 extends View {
         String textToShow = presentage + "%";
         paint.setColor(getResources().getColor(R.color.dark));
         paint.setTextAlign(Paint.Align.CENTER);
+        paint.setTextSize(25);
         Rect result = new Rect();
         paint.getTextBounds(textToShow, 0, textToShow.length(), result);
         int yOffset = result.height() / 2;
