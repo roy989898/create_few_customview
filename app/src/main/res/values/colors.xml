@@ -11,4 +11,6 @@
     <color name="dark">#000000</color>
     <color name="green">#93c24e</color>
     <color name="shadow">#1e000000</color>
+    <color name="first_lineText_color">#2394bf</color>
+    <color name="second_lineText_color">#8d8d8e</color>
 </resources>
