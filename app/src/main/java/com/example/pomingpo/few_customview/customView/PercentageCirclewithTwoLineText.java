@@ -17,11 +17,17 @@ import com.example.pomingpo.few_customview.R;
 
 public class PercentageCirclewithTwoLineText extends View {
 
-    private final int size = 500;
+
     private final Paint textPaint1;
     private final Paint textPaint2;
     private Paint paint;
     private float intertwoTextSpace = 10;
+    String firstLineText = "10%";
+    String secondLineText = "Very Good";
+    private int interTextAndStorkSpace=100;
+    private int storkWidth=20;
+    private int noPaddingmeasureWidth;
+    private int noPaddingmeasureHeight;
 
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -40,7 +46,7 @@ public class PercentageCirclewithTwoLineText extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+       int size = noPaddingmeasureWidth;
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(getResources().getColor(R.color.gray_deep));
         float radius = size / 2;
@@ -67,14 +73,14 @@ public class PercentageCirclewithTwoLineText extends View {
         canvas.drawCircle(cx, cy, radius - storkWidth, paint);
 
 //        Rect rect1 = new Rect();
-        String firstLineText = "10%";
+
 //        textPaint1.getTextBounds(firstLineText, 0, firstLineText.length(), rect1);
         Paint.FontMetrics fmForFirstLineText = textPaint1.getFontMetrics();
         float yOffset1 = -fmForFirstLineText.ascent + fmForFirstLineText.descent;
 
 
 //        Rect rect2 = new Rect();
-        String secondLineText = "Very Good";
+
 //        textPaint2.getTextBounds(secondLineText, 0, secondLineText.length(), rect2);
         Paint.FontMetrics fmForSecondLineText = textPaint2.getFontMetrics();
         float yOffset2 = -fmForSecondLineText.ascent + fmForSecondLineText.descent;
