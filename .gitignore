@@ -34,3 +34,7 @@ captures/
 \.idea/
 
 app/app\.iml
+
+*.iml
+
+app/src/main/java/com/example/pomingpo/\.DS_Store
