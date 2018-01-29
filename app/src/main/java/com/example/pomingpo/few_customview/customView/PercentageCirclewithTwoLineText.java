@@ -92,4 +92,38 @@ public class PercentageCirclewithTwoLineText extends View {
 
 
     }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+// calculate the min width= longerTextWidth+textInnerStorkSpace+storkWidth;
+        Rect rect1 = new Rect();
+        textPaint1.getTextBounds(firstLineText, 0, firstLineText.length(), rect1);
+        float firstLineTextLong = rect1.right - rect1.left;
+
+        Rect rect2 = new Rect();
+        textPaint2.getTextBounds(secondLineText, 0, secondLineText.length(), rect2);
+        float secondLioneTextLong = rect2.right - rect2.left;
+
+        float longerTextLong = firstLineTextLong > secondLioneTextLong ? firstLineTextLong : secondLioneTextLong;
+
+
+        int miniWidth = (int) (longerTextLong + interTextAndStorkSpace * 2 + storkWidth * 2);
+        // claculate the miniHeight=text1Height+text2Height+textInnerSpace +storkWidth*2+textInnerStorkSpace
+        Paint.FontMetrics fmForFirstLineText = textPaint1.getFontMetrics();
+        float yOffset1 = -fmForFirstLineText.ascent + fmForFirstLineText.descent;
+        Paint.FontMetrics fmForSecondLineText = textPaint2.getFontMetrics();
+        float yOffset2 = -fmForSecondLineText.ascent + fmForSecondLineText.descent;
+        float totalTextHeight = yOffset1 + yOffset2;
+        int miniHeight = (int) (totalTextHeight + intertwoTextSpace + storkWidth * 2 + interTextAndStorkSpace * 2);
+
+        miniWidth = miniWidth < miniHeight ? miniHeight : miniWidth;
+
+        int measuredWidth = resolveSize(miniWidth, widthMeasureSpec);
+        noPaddingmeasureWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
+        noPaddingmeasureHeight = noPaddingmeasureWidth;
+        int measuredHeight = noPaddingmeasureHeight + getPaddingBottom() + getPaddingTop();
+        setMeasuredDimension(measuredWidth, measuredHeight);
+
+    }
 }
