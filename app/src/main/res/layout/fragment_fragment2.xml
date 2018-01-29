@@ -10,6 +10,7 @@
     <com.example.pomingpo.few_customview.customView.PercentageCirclewithTwoLineText
         android:id="@+id/pc"
         android:layout_width="match_parent"
+        app:m_first_line_text_size="40dp"
         android:layout_height="match_parent"
         app:m_percentage="70" />
 
