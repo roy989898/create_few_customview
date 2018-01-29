@@ -1,37 +1,46 @@
 package com.example.pomingpo.few_customview;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 
-import com.example.pomingpo.few_customview.customView.CircleInsideHaveTextView1;
+import com.example.pomingpo.few_customview.Fragment.CircleInsideHaveTextView1Fragment;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CircleInsideHaveTextView1 cv1r;
-    private Button btchange;
+
+    @BindView(R.id.vp)
+    ViewPager vp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.btchange = (Button) findViewById(R.id.bt_change);
-        this.cv1r = (CircleInsideHaveTextView1) findViewById(R.id.cv1_r);
+        ButterKnife.bind(this);
 
+        ContentPagerAdapter adapter = new ContentPagerAdapter(getSupportFragmentManager());
+        adapter.setFragmentArrayList(createFragmentList());
 
-        btchange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cv1r.setPresentage(randomWithRange(0, 100));
-            }
-        });
+        vp.setAdapter(adapter);
 
 
     }
 
-    int randomWithRange(int min, int max) {
-        int range = (max - min) + 1;
-        return (int) (Math.random() * range) + min;
+
+    private ArrayList<Fragment> createFragmentList() {
+        ArrayList<Fragment> list = new ArrayList<>();
+        list.add(new CircleInsideHaveTextView1Fragment());
+        list.add(new CircleInsideHaveTextView1Fragment());
+
+        return list;
+
     }
+
+
 }

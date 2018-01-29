@@ -8,19 +8,9 @@
     android:orientation="vertical"
     tools:context="com.example.pomingpo.few_customview.MainActivity">
 
-    <com.example.pomingpo.few_customview.customView.CircleInsideHaveTextView1
-        android:id="@+id/cv1_r"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:innerTextSize="30dp"
-        app:percentage="20"
-        app:storkWidth="50dp" />
-
-    <Button
-        android:id="@+id/bt_change"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="click" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>
