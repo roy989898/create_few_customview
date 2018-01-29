@@ -23,6 +23,8 @@ public class PercentageCirclewithTwoLineText extends View {
     private final Paint textPaint2;
     private final float firstLineTextSize;
     private final int firstLineTextColor;
+    private final float secondLineTextSize;
+    private final int secondLineTextColor;
     private Paint paint;
     private float intertwoTextSpace = 10;
     String firstLineText;
@@ -59,6 +61,8 @@ public class PercentageCirclewithTwoLineText extends View {
             firstLineTextSize = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_m_first_line_text_size, 20);
             firstLineTextColor = a.getColor(R.styleable.PercentageCirclewithTwoLineText_m_first_line_text_color, 0);
             secondLineText = a.getString(R.styleable.PercentageCirclewithTwoLineText_m_second_line_text);
+            secondLineTextSize = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_m_second_line_text_size, 20);
+            secondLineTextColor = a.getColor(R.styleable.PercentageCirclewithTwoLineText_m_second_line_text_color, 0);
 
         } finally {
             a.recycle();
@@ -74,9 +78,9 @@ public class PercentageCirclewithTwoLineText extends View {
         textPaint1.setColor(firstLineTextColor);
         textPaint1.setTextSize(firstLineTextSize);
         textPaint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
-        textPaint2.setColor(getResources().getColor(R.color.second_lineText_color));
+        textPaint2.setColor(secondLineTextColor);
         textPaint2.setTextAlign(Paint.Align.CENTER);
-        textPaint2.setTextSize(30);
+        textPaint2.setTextSize(secondLineTextSize);
     }
 
 
