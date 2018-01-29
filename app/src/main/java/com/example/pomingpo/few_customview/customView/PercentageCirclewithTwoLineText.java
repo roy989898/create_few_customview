@@ -21,6 +21,7 @@ public class PercentageCirclewithTwoLineText extends View {
     private final Paint textPaint1;
     private final Paint textPaint2;
     private Paint paint;
+    private float intertwoTextSpace = 10;
 
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -28,7 +29,7 @@ public class PercentageCirclewithTwoLineText extends View {
         textPaint1 = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint1.setTextAlign(Paint.Align.CENTER);
         textPaint1.setColor(getResources().getColor(R.color.first_lineText_color));
-        textPaint1.setTextSize(80);
+        textPaint1.setTextSize(200);
         textPaint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint2.setColor(getResources().getColor(R.color.second_lineText_color));
         textPaint2.setTextAlign(Paint.Align.CENTER);
@@ -70,7 +71,6 @@ public class PercentageCirclewithTwoLineText extends View {
         textPaint1.getTextBounds(firstLineText, 0, firstLineText.length(), rect1);
         float yOffset1 = rect1.bottom - rect1.top / 2f;
         Paint.FontMetrics fmForFirstLineText = textPaint1.getFontMetrics();
-        canvas.drawText(firstLineText, cx, cy + yOffset1 - fmForFirstLineText.descent, textPaint1);
 
 
         Rect rect2 = new Rect();
@@ -78,7 +78,16 @@ public class PercentageCirclewithTwoLineText extends View {
         textPaint2.getTextBounds(secondLineText, 0, secondLineText.length(), rect2);
         float yOffset2 = rect2.bottom - rect2.top / 2f;
         Paint.FontMetrics fmForSecondLineText = textPaint2.getFontMetrics();
-        canvas.drawText(secondLineText, cx, cy + yOffset2 - fmForSecondLineText.descent, textPaint2);
+
+        float totlaYOffset = yOffset1 + yOffset2 + intertwoTextSpace;
+        float y1 = cy + (totlaYOffset / 2f - yOffset2 - intertwoTextSpace);
+        float y2 = cy + totlaYOffset / 2f;
+        canvas.drawText(firstLineText, cx, y1, textPaint1);
+        canvas.drawText(secondLineText, cx, y2, textPaint2);
+
+
+        paint.setColor(getResources().getColor(R.color.colorAccent));
+        canvas.drawCircle(cx, cy, 10, paint);
 
 
     }
