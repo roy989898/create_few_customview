@@ -17,6 +17,8 @@ import com.example.pomingpo.few_customview.R;
  */
 
 public class CircleInsideHaveTextView1 extends View {
+
+    private final int storkColor;
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private String textToShow;
@@ -37,6 +39,7 @@ public class CircleInsideHaveTextView1 extends View {
             presentage = a.getFloat(R.styleable.CircleInsideHaveTextView1_percentage, 0);
             storkWidth = a.getDimension(R.styleable.CircleInsideHaveTextView1_storkWidth, 30);
             innerTextSize = a.getDimension(R.styleable.CircleInsideHaveTextView1_innerTextSize, 20);
+            storkColor = a.getInteger(R.styleable.CircleInsideHaveTextView1_storkColor, 0);
         } finally {
             a.recycle();
         }
@@ -75,7 +78,7 @@ public class CircleInsideHaveTextView1 extends View {
         int bottom = top + size;
 
 
-        paint.setColor(getResources().getColor(R.color.blue));
+        paint.setColor(storkColor);
         RectF oval = new RectF(left, top, right, bottom);
         canvas.drawArc(oval, 275, -formStartAngle, true, paint);
 

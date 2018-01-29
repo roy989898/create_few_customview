@@ -3,6 +3,7 @@
     <declare-styleable name="CircleInsideHaveTextView1">
         <attr name="percentage" format="float"/>
         <attr name="storkWidth" format="dimension"/>
+        <attr name="storkColor" format="color"/>
         <attr name="innerTextSize" format="dimension"/>
     </declare-styleable>
 </resources>
