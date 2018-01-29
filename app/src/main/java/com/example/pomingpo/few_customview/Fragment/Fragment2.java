@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.pomingpo.few_customview.R;
 import com.example.pomingpo.few_customview.Util;
@@ -28,6 +29,8 @@ public class Fragment2 extends Fragment {
     Unbinder unbinder;
     @BindView(R.id.bt_click)
     Button btClick;
+    @BindView(R.id.et_secondText)
+    EditText etSecondText;
 
     public Fragment2() {
         // Required empty public constructor
@@ -52,5 +55,6 @@ public class Fragment2 extends Fragment {
     @OnClick(R.id.bt_click)
     public void onClick() {
         pc.setPercentage(Util.randomWithRange(0, 100));
+        pc.setSecondLineText(etSecondText.getText().toString());
     }
 }

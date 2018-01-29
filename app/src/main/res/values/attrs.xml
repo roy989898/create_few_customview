@@ -12,5 +12,7 @@
         <attr name="m_percentage" format="float"/>
         <attr name="m_first_line_text_size" format="dimension"/>
         <attr name="m_first_line_text_color" format="color"/>
+
+        <attr name="m_second_line_text" format="string"/>
     </declare-styleable>
 </resources>

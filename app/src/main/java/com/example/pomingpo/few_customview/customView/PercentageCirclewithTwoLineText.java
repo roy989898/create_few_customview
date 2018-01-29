@@ -33,6 +33,12 @@ public class PercentageCirclewithTwoLineText extends View {
     private int noPaddingmeasureHeight;
     float percentage;
 
+    public void setSecondLineText(String secondLineText) {
+        this.secondLineText = secondLineText;
+        invalidate();
+        requestLayout();
+    }
+
     public void setPercentage(float percentage) {
         this.percentage = percentage;
         requestLayout();
@@ -52,11 +58,14 @@ public class PercentageCirclewithTwoLineText extends View {
             percentage = a.getFloat(R.styleable.PercentageCirclewithTwoLineText_m_percentage, 40);
             firstLineTextSize = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_m_first_line_text_size, 20);
             firstLineTextColor = a.getColor(R.styleable.PercentageCirclewithTwoLineText_m_first_line_text_color, 0);
+            secondLineText = a.getString(R.styleable.PercentageCirclewithTwoLineText_m_second_line_text);
 
         } finally {
             a.recycle();
         }
         firstLineText = percentage + "%";
+        if (secondLineText == null)
+            secondLineText = "";
 
 
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -76,6 +85,8 @@ public class PercentageCirclewithTwoLineText extends View {
         super.onDraw(canvas);
         int size = noPaddingmeasureWidth;
         firstLineText = percentage + "%";
+        if (secondLineText == null)
+            secondLineText = "";
 
 
         paint.setStyle(Paint.Style.FILL);

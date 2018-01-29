@@ -10,10 +10,16 @@
     <com.example.pomingpo.few_customview.customView.PercentageCirclewithTwoLineText
         android:id="@+id/pc"
         android:layout_width="match_parent"
-        app:m_first_line_text_size="40dp"
-        app:m_first_line_text_color="@color/blue"
         android:layout_height="match_parent"
-        app:m_percentage="70" />
+        app:m_first_line_text_color="@color/blue"
+        app:m_first_line_text_size="40dp"
+        app:m_percentage="70"
+        app:m_second_line_text="HIHI" />
+
+    <EditText
+        android:id="@+id/et_secondText"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/bt_click"
