@@ -1,6 +1,7 @@
 package com.example.pomingpo.few_customview.customView;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -22,15 +23,38 @@ public class PercentageCirclewithTwoLineText extends View {
     private final Paint textPaint2;
     private Paint paint;
     private float intertwoTextSpace = 10;
-    String firstLineText = "10%";
+    String firstLineText;
     String secondLineText = "Very Good";
-    private int interTextAndStorkSpace=100;
-    private int storkWidth=20;
+    private int interTextAndStorkSpace = 100;
+    private int storkWidth = 20;
     private int noPaddingmeasureWidth;
     private int noPaddingmeasureHeight;
+    float percentage;
+
+    public void setPercentage(float percentage) {
+        this.percentage = percentage;
+        requestLayout();
+        invalidate();
+
+    }
 
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.PercentageCirclewithTwoLineText,
+                0, 0);
+
+        try {
+            percentage = a.getFloat(R.styleable.PercentageCirclewithTwoLineText_m_percentage, 40);
+
+        } finally {
+            a.recycle();
+        }
+        firstLineText = percentage + "%";
+
+
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint1 = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint1.setTextAlign(Paint.Align.CENTER);
@@ -46,7 +70,10 @@ public class PercentageCirclewithTwoLineText extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-       int size = noPaddingmeasureWidth;
+        int size = noPaddingmeasureWidth;
+        firstLineText = percentage + "%";
+
+
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(getResources().getColor(R.color.gray_deep));
         float radius = size / 2;
@@ -61,7 +88,7 @@ public class PercentageCirclewithTwoLineText extends View {
         float right = cx + radius;
         float bottom = cy + radius;
         RectF retf = new RectF(left, top, right, bottom);
-        float percentage = 40;
+
         canvas.drawArc(retf, -90, 360 * percentage / 100, true, paint);
 
         float storkWidth = 70;

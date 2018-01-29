@@ -6,4 +6,9 @@
         <attr name="storkColor" format="color"/>
         <attr name="innerTextSize" format="dimension"/>
     </declare-styleable>
+
+
+    <declare-styleable name="PercentageCirclewithTwoLineText">
+        <attr name="m_percentage" format="float"/>
+    </declare-styleable>
 </resources>

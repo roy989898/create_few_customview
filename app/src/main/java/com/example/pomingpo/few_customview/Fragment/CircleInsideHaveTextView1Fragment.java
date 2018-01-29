@@ -16,6 +16,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+import static com.example.pomingpo.few_customview.Util.randomWithRange;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -53,8 +55,5 @@ public class CircleInsideHaveTextView1Fragment extends Fragment {
         cv1R.setPresentage(randomWithRange(0, 100));
     }
 
-    int randomWithRange(int min, int max) {
-        int range = (max - min) + 1;
-        return (int) (Math.random() * range) + min;
-    }
+
 }

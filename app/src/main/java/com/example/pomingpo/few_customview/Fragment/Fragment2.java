@@ -6,14 +6,28 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.pomingpo.few_customview.R;
+import com.example.pomingpo.few_customview.Util;
+import com.example.pomingpo.few_customview.customView.PercentageCirclewithTwoLineText;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment2 extends Fragment {
 
+
+    @BindView(R.id.pc)
+    PercentageCirclewithTwoLineText pc;
+    Unbinder unbinder;
+    @BindView(R.id.bt_click)
+    Button btClick;
 
     public Fragment2() {
         // Required empty public constructor
@@ -24,7 +38,19 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment2, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment2, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @OnClick(R.id.bt_click)
+    public void onClick() {
+        pc.setPercentage(Util.randomWithRange(0, 100));
+    }
 }
