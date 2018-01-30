@@ -9,7 +9,7 @@
 
     <com.example.pomingpo.few_customview.customView.CircleInsideHaveTextView1
         android:id="@+id/cv1_r"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         app:innerTextSize="30dp"

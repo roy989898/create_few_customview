@@ -1,6 +1,7 @@
 package com.example.pomingpo.few_customview.customView;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -30,10 +31,33 @@ public class PercentageCirclewithTwoLineText extends View {
     private int noPaddingmeasureHeight;
     private float spaceInnerTextAndStork = 30;
     private float storkWidth = 70;
-    private int longerTextWidth;
+    private float percentage;
+    private String defaultFirstLineP="100.00%";
+
+    public void setPercentage(float percentage) {
+        this.percentage = percentage;
+        invalidate();
+
+    }
 
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrs,
+                R.styleable.PercentageCirclewithTwoLineText,
+                0, 0);
+
+        try {
+            percentage = a.getFloat(R.styleable.PercentageCirclewithTwoLineText_pc_percentage, 10);
+
+        } finally {
+            a.recycle();
+        }
+
+//        spaceInnerTextAndStork= (float) ((firstLineTextSize>secondLinetextSize?firstLineTextSize:secondLinetextSize)*0.3);
+
+
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint1 = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint1.setTextAlign(Paint.Align.CENTER);
@@ -46,12 +70,17 @@ public class PercentageCirclewithTwoLineText extends View {
         textPaint2.setTextSize(secondLinetextSize);
     }
 
+    private void setText() {
+
+        firstLineText = percentage + "%";
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int size = noPaddingMeasuredWidth;
-        spaceInnerTextAndStork = longerTextWidth * 0.2f;
+        setText();
+
 
 
         paint.setStyle(Paint.Style.FILL);
@@ -68,7 +97,7 @@ public class PercentageCirclewithTwoLineText extends View {
         float right = cx + radius;
         float bottom = cy + radius;
         RectF retf = new RectF(left, top, right, bottom);
-        float percentage = 40;
+
         canvas.drawArc(retf, -90, 360 * percentage / 100, true, paint);
 
 
@@ -111,11 +140,11 @@ public class PercentageCirclewithTwoLineText extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
         // miniWidgth=longer_text_width+space_innter_text_and_stork*2+stork_width *2
+        setText();
 
-
-        int firstLineTextWidth = calculatetextWidth(textPaint1, firstLineText);
+        int firstLineTextWidth = calculatetextWidth(textPaint1, defaultFirstLineP);
         int secondLineTextWidth = calculatetextWidth(textPaint2, secondLineText);
-        longerTextWidth = firstLineTextWidth > secondLineTextWidth ? firstLineTextWidth : secondLineTextWidth;
+        int longerTextWidth = firstLineTextWidth > secondLineTextWidth ? firstLineTextWidth : secondLineTextWidth;
 
         float miniwidth = longerTextWidth + spaceInnerTextAndStork * 2 + storkWidth * 2;
 
@@ -129,7 +158,8 @@ public class PercentageCirclewithTwoLineText extends View {
 
         float miniwidthWithPadding = miniwidth + getPaddingLeft() + getPaddingRight();
         int measuredWidth = resolveSize((int) miniwidthWithPadding, widthMeasureSpec);
-        noPaddingMeasuredWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
+        int newNoPaddingMeasuredWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
+        noPaddingMeasuredWidth = newNoPaddingMeasuredWidth > noPaddingMeasuredWidth ? newNoPaddingMeasuredWidth : noPaddingMeasuredWidth;
         noPaddingmeasureHeight = noPaddingMeasuredWidth;
         int measuredHeight = noPaddingmeasureHeight + getPaddingBottom() + getPaddingTop();
         setMeasuredDimension(measuredWidth, measuredHeight);

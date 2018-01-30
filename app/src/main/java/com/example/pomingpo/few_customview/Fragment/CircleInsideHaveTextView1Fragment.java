@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.pomingpo.few_customview.R;
+import com.example.pomingpo.few_customview.Util;
 import com.example.pomingpo.few_customview.customView.CircleInsideHaveTextView1;
 
 import butterknife.BindView;
@@ -50,11 +51,8 @@ public class CircleInsideHaveTextView1Fragment extends Fragment {
 
     @OnClick(R.id.bt_change)
     public void onClick() {
-        cv1R.setPresentage(randomWithRange(0, 100));
+        cv1R.setPresentage(Util.randomWithRange(0, 100));
     }
 
-    int randomWithRange(int min, int max) {
-        int range = (max - min) + 1;
-        return (int) (Math.random() * range) + min;
-    }
+
 }
