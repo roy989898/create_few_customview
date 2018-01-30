@@ -23,6 +23,7 @@ public class PercentageCirclewithTwoLineText extends View {
     private final Paint textPaint2;
     private final int firstLineTextColor;
     private final int secondLineTextColor;
+    private String longestSecondLineText = "";
     private Paint paint;
     private float intertwoTextSpace = 10;
     private float firstLineTextSize = 200;
@@ -57,6 +58,14 @@ public class PercentageCirclewithTwoLineText extends View {
 
             secondLineTextColor = a.getColor(R.styleable.PercentageCirclewithTwoLineText_pc_second_line_color, getResources().getColor(R.color.dark));
             secondLinetextSize = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_pc_second_line_text_size, 20);
+            secondLineText = a.getString(R.styleable.PercentageCirclewithTwoLineText_pc_second_line_text);
+            longestSecondLineText = a.getString(R.styleable.PercentageCirclewithTwoLineText_pc_longest_second_line_text);
+            if (secondLineText == null) {
+                secondLineText = "";
+            }
+            if (longestSecondLineText == null) {
+                longestSecondLineText = "";
+            }
 
         } finally {
             a.recycle();
@@ -149,7 +158,7 @@ public class PercentageCirclewithTwoLineText extends View {
         setText();
 
         int firstLineTextWidth = calculatetextWidth(textPaint1, defaultFirstLineP);
-        int secondLineTextWidth = calculatetextWidth(textPaint2, secondLineText);
+        int secondLineTextWidth = calculatetextWidth(textPaint2, longestSecondLineText);
         int longerTextWidth = firstLineTextWidth > secondLineTextWidth ? firstLineTextWidth : secondLineTextWidth;
 
         float miniwidth = longerTextWidth + spaceInnerTextAndStork * 2 + storkWidth * 2;

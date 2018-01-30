@@ -16,10 +16,11 @@
 
 
         <!--set second line text-->
+        <attr name="pc_second_line_text" format="string" />
+        <attr name="pc_longest_second_line_text" format="string" />
         <!--set second line text color-->
-        <!--set second line text size-->
         <attr name="pc_second_line_color" format="color" />
-        <!--set first line text size-->
+        <!--set second line text size-->
         <attr name="pc_second_line_text_size" format="dimension" />
 
 
