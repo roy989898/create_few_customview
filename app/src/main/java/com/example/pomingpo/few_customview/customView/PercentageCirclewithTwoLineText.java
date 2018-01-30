@@ -32,7 +32,7 @@ public class PercentageCirclewithTwoLineText extends View {
     private float spaceInnerTextAndStork = 30;
     private float storkWidth = 70;
     private float percentage;
-    private String defaultFirstLineP="100.00%";
+    private final String defaultFirstLineP = "100.00%";
 
     public void setPercentage(float percentage) {
         this.percentage = percentage;
@@ -80,7 +80,6 @@ public class PercentageCirclewithTwoLineText extends View {
         super.onDraw(canvas);
         int size = noPaddingMeasuredWidth;
         setText();
-
 
 
         paint.setStyle(Paint.Style.FILL);
