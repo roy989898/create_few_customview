@@ -75,7 +75,7 @@ public class PercentageCirclewithTwoLineText extends View {
 
 
             stork_color = a.getColor(R.styleable.PercentageCirclewithTwoLineText_pc_stork_color, getResources().getColor(R.color.dark));
-
+            storkWidth = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_pc_stork_width, 70);
         } finally {
             a.recycle();
         }

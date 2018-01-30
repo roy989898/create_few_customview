@@ -39,6 +39,7 @@
         app:pc_longest_second_line_text="veryverygoood"
         app:pc_percentage="30.1"
         app:pc_second_line_text="Very good"
+        app:pc_stork_width="20dp"
         app:pc_second_line_text_size="20dp"
         app:pc_stork_color="@color/green" />
 

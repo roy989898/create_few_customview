@@ -27,6 +27,7 @@
         <!--set stork color-->
         <attr name="pc_stork_color" format="color" />
         <!--set stork width-->
+        <attr name="pc_stork_width" format="dimension" />
 
     </declare-styleable>
 
