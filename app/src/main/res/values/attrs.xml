@@ -10,7 +10,9 @@
         <!--set percentage-->
         <attr name="pc_percentage" format="float" />
         <!--set first line text color-->
+        <attr name="pc_first_line_color" format="color" />
         <!--set first line text size-->
+        <attr name="pc_first_line_text_size" format="dimension" />
 
 
         <!--set second line text-->
