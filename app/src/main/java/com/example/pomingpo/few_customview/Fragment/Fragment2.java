@@ -55,5 +55,6 @@ public class Fragment2 extends Fragment {
     @OnClick(R.id.bt_change)
     public void onClick() {
         pc.setPercentage(Util.randomWithRange(0, 100));
+        pc.setSecondLineText(edEnterSecondText.getText().toString());
     }
 }

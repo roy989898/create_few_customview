@@ -43,6 +43,11 @@ public class PercentageCirclewithTwoLineText extends View {
 
     }
 
+    public void setSecondLineText(String secondLineText) {
+        this.secondLineText = secondLineText;
+        invalidate();
+    }
+
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
