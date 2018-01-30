@@ -17,7 +17,7 @@ import com.example.pomingpo.few_customview.R;
 
 public class PercentageCirclewithTwoLineText extends View {
 
-    private final int size = 500;
+
     private final Paint textPaint1;
     private final Paint textPaint2;
     private Paint paint;
@@ -26,6 +26,11 @@ public class PercentageCirclewithTwoLineText extends View {
     private float secondLinetextSize = 30;
     String firstLineText = "10%";
     String secondLineText = "Very Good";
+    private int noPaddingMeasuredWidth;
+    private int noPaddingmeasureHeight;
+    private float spaceInnerTextAndStork = 30;
+    private float storkWidth = 70;
+    private int longerTextWidth;
 
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -45,6 +50,9 @@ public class PercentageCirclewithTwoLineText extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        int size = noPaddingMeasuredWidth;
+        spaceInnerTextAndStork = longerTextWidth * 0.2f;
+
 
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(getResources().getColor(R.color.gray_deep));
@@ -63,7 +71,7 @@ public class PercentageCirclewithTwoLineText extends View {
         float percentage = 40;
         canvas.drawArc(retf, -90, 360 * percentage / 100, true, paint);
 
-        float storkWidth = 70;
+
         float shoadowWidth = 2;
         paint.setColor(getResources().getColor(R.color.shadow));
         canvas.drawCircle(cx, cy, radius - storkWidth + shoadowWidth, paint);
@@ -96,5 +104,53 @@ public class PercentageCirclewithTwoLineText extends View {
         canvas.drawCircle(cx, cy, 10, paint);*/
 
 
+    }
+
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        // miniWidgth=longer_text_width+space_innter_text_and_stork*2+stork_width *2
+
+
+        int firstLineTextWidth = calculatetextWidth(textPaint1, firstLineText);
+        int secondLineTextWidth = calculatetextWidth(textPaint2, secondLineText);
+        longerTextWidth = firstLineTextWidth > secondLineTextWidth ? firstLineTextWidth : secondLineTextWidth;
+
+        float miniwidth = longerTextWidth + spaceInnerTextAndStork * 2 + storkWidth * 2;
+
+//  calculate the mini height =two_line_text_height+innte_text_space+space_innter_text_and_stork*2+stork_width *2
+
+        float totalTextHeight = calculateTextHeight(textPaint2) + calculateTextHeight(textPaint1);
+
+        float miniHeight = totalTextHeight + intertwoTextSpace + spaceInnerTextAndStork * 2 + storkWidth * 2;
+
+        miniwidth = miniwidth > miniHeight ? miniwidth : miniHeight;
+
+        float miniwidthWithPadding = miniwidth + getPaddingLeft() + getPaddingRight();
+        int measuredWidth = resolveSize((int) miniwidthWithPadding, widthMeasureSpec);
+        noPaddingMeasuredWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
+        noPaddingmeasureHeight = noPaddingMeasuredWidth;
+        int measuredHeight = noPaddingmeasureHeight + getPaddingBottom() + getPaddingTop();
+        setMeasuredDimension(measuredWidth, measuredHeight);
+    }
+
+    private int calculatetextWidth(Paint paint, String text) {
+
+        Rect rect1 = new Rect();
+
+        paint.getTextBounds(text, 0, text.length(), rect1);
+
+        int textWidth = rect1.right - rect1.left;
+
+
+        return textWidth;
+    }
+
+    private float calculateTextHeight(Paint paint) {
+        Paint.FontMetrics fm = paint.getFontMetrics();
+        float textHeight = -fm.ascent + fm.descent;
+
+        return textHeight;
     }
 }
