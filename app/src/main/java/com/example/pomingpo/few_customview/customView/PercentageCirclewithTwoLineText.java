@@ -22,6 +22,10 @@ public class PercentageCirclewithTwoLineText extends View {
     private final Paint textPaint2;
     private Paint paint;
     private float intertwoTextSpace = 10;
+    private float firstLineTextSize = 200;
+    private float secondLinetextSize = 30;
+    String firstLineText = "10%";
+    String secondLineText = "Very Good";
 
     public PercentageCirclewithTwoLineText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -29,11 +33,12 @@ public class PercentageCirclewithTwoLineText extends View {
         textPaint1 = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint1.setTextAlign(Paint.Align.CENTER);
         textPaint1.setColor(getResources().getColor(R.color.first_lineText_color));
-        textPaint1.setTextSize(80);
+        textPaint1.setTextSize(firstLineTextSize);
+
         textPaint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint2.setColor(getResources().getColor(R.color.second_lineText_color));
         textPaint2.setTextAlign(Paint.Align.CENTER);
-        textPaint2.setTextSize(30);
+        textPaint2.setTextSize(secondLinetextSize);
     }
 
 
@@ -67,14 +72,14 @@ public class PercentageCirclewithTwoLineText extends View {
         canvas.drawCircle(cx, cy, radius - storkWidth, paint);
 
 //        Rect rect1 = new Rect();
-        String firstLineText = "10%";
+
 //        textPaint1.getTextBounds(firstLineText, 0, firstLineText.length(), rect1);
         Paint.FontMetrics fmForFirstLineText = textPaint1.getFontMetrics();
         float yOffset1 = -fmForFirstLineText.ascent + fmForFirstLineText.descent;
 
 
 //        Rect rect2 = new Rect();
-        String secondLineText = "Very Good";
+
 //        textPaint2.getTextBounds(secondLineText, 0, secondLineText.length(), rect2);
         Paint.FontMetrics fmForSecondLineText = textPaint2.getFontMetrics();
         float yOffset2 = -fmForSecondLineText.ascent + fmForSecondLineText.descent;
