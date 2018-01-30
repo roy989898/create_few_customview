@@ -22,6 +22,7 @@ public class CircleInsideHaveTextView1 extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private String textToShow;
+    private final String defaultFirstLineP = "100.00%";
     private int noPaddingmeasureWidth;
     private int noPaddingmeasureHeight;
     private float presentage;
@@ -57,7 +58,7 @@ public class CircleInsideHaveTextView1 extends View {
 
     public void setPresentage(float presentage) {
         this.presentage = presentage;
-        requestLayout();
+//        requestLayout();
         invalidate();
 
     }
@@ -65,7 +66,7 @@ public class CircleInsideHaveTextView1 extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        textToShow = presentage + "%";
 
         float formStartAngle = presentage / 100.0f * 360.0f;
 
@@ -115,10 +116,10 @@ public class CircleInsideHaveTextView1 extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        textToShow = presentage + "%";
+
         // calculate the min size= text_long+space+storkWidth*2
         Rect result = new Rect();
-        textPaint.getTextBounds(textToShow, 0, textToShow.length(), result);
+        textPaint.getTextBounds(defaultFirstLineP, 0, defaultFirstLineP.length(), result);
         float textLongSize = result.right - result.left;
         float spaceBetweenTextAndStork = 10;
         int miniSize = (int) (textLongSize + spaceBetweenTextAndStork + storkWidth * 2);
