@@ -36,6 +36,7 @@ public class PercentageCirclewithTwoLineText extends View {
     private float storkWidth = 70;
     private float percentage;
     private final String defaultFirstLineP = "100.00%";
+    private int stork_color;
 
     public void setPercentage(float percentage) {
         this.percentage = percentage;
@@ -71,6 +72,9 @@ public class PercentageCirclewithTwoLineText extends View {
             if (longestSecondLineText == null) {
                 longestSecondLineText = "";
             }
+
+
+            stork_color = a.getColor(R.styleable.PercentageCirclewithTwoLineText_pc_stork_color, getResources().getColor(R.color.dark));
 
         } finally {
             a.recycle();
@@ -111,7 +115,7 @@ public class PercentageCirclewithTwoLineText extends View {
         float cy = 0 + radius;
         canvas.drawCircle(cx, cy, radius, paint);
 //        draw arc
-        paint.setColor(getResources().getColor(R.color.green));
+        paint.setColor(stork_color);
         float left = cx - radius;
         float top = cy - radius;
         float right = cx + radius;

@@ -25,7 +25,8 @@
 
 
         <!--set stork color-->
-        <!--set stork wisth-->
+        <attr name="pc_stork_color" format="color" />
+        <!--set stork width-->
 
     </declare-styleable>
 
