@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.pomingpo.few_customview.Fragment.CircleInsideHaveTextView1Fragment;
 import com.example.pomingpo.few_customview.Fragment.Fragment2;
+import com.example.pomingpo.few_customview.Fragment.Fragment3;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Fragment> list = new ArrayList<>();
         list.add(new CircleInsideHaveTextView1Fragment());
         list.add(new Fragment2());
-
+        list.add(new Fragment3());
         return list;
 
     }
