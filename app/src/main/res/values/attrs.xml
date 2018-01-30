@@ -20,7 +20,8 @@
         <!--set second line text size-->
         <attr name="pc_second_line_color" format="color" />
         <!--set first line text size-->
-        <!--<attr name="pc_second_line_text_size" format="dimension" />-->
+        <attr name="pc_second_line_text_size" format="dimension" />
+
 
         <!--set stork color-->
         <!--set stork wisth-->

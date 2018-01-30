@@ -56,6 +56,7 @@ public class PercentageCirclewithTwoLineText extends View {
             firstLineTextSize = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_pc_first_line_text_size, 20);
 
             secondLineTextColor = a.getColor(R.styleable.PercentageCirclewithTwoLineText_pc_second_line_color, getResources().getColor(R.color.dark));
+            secondLinetextSize = a.getDimension(R.styleable.PercentageCirclewithTwoLineText_pc_second_line_text_size, 20);
 
         } finally {
             a.recycle();
