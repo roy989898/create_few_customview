@@ -29,7 +29,6 @@ public class CircleWithRightSideTextView extends View {
         int firstLineTextColor = getResources().getColor(R.color.gray_deep);
         float firstLineTextSize = 25;
         textPaint1.setColor(firstLineTextColor);
-
         textPaint1.setTextSize(firstLineTextSize);
 
         textPaint2 = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -37,7 +36,6 @@ public class CircleWithRightSideTextView extends View {
         float secondLinetextSize = 50;
         textPaint2.setColor(secondLineTextColor);
         textPaint2.setTextAlign(Paint.Align.CENTER);
-
         textPaint2.setTextSize(secondLinetextSize);
     }
 
