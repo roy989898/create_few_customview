@@ -28,6 +28,7 @@ public class CircleWithRightSideTextView extends View {
 
         float radius = 120;
         float heighA = 30;
+        float storkWidth = 30;
         // TODO: 30/1/2018 calculate the xDegree from high A
 
 //        sine@=(heighA/2)/radius
@@ -35,17 +36,18 @@ public class CircleWithRightSideTextView extends View {
 //        float xDegree = 40;
         float startPoint = 20;
         paint.setStyle(Paint.Style.STROKE);
-        float left = 0;
-        float top = 0;
-        float right = left + radius * 2;
-        float bootom = top + radius * 2;
+        float left = 0 + storkWidth;
+        float top = 0 + storkWidth;
+        float right = left + radius * 2 + storkWidth;
+        float bootom = top + radius * 2 + storkWidth;
+        float cx = left + (right - left) / 2;
+        float cy = top + (bootom - top) / 2;
+
+
         RectF reft = new RectF(left, top, right, bootom);
-        paint.setStrokeWidth(30);
+        paint.setStrokeWidth(storkWidth);
         paint.setColor(getResources().getColor(R.color.blue));
         canvas.drawArc(reft, startPoint + xDegree, 360 - xDegree, false, paint);
-
-        float cx = top + radius;
-        float cy = left + radius;
 
 
         float reftTOP = cy + useDegreeToCalculateTheHeight(startPoint, radius);
