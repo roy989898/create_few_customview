@@ -35,6 +35,7 @@ public class CircleWithRightSideTextView extends View {
         float bootom = top + radius * 2 + storkWidth;
         float cx = left + (right - left) / 2;
         float cy = top + (bootom - top) / 2;
+        float bearPercentage = 80;
         //  calculate the xDegree from high A
 
 //        sine@=(heighA/2)/radius
@@ -46,8 +47,12 @@ public class CircleWithRightSideTextView extends View {
 
         RectF reft = new RectF(left, top, right, bootom);
         paint.setStrokeWidth(storkWidth);
-        paint.setColor(getResources().getColor(R.color.blue));
+        paint.setColor(getResources().getColor(R.color.gray_deep));
         canvas.drawArc(reft, startPoint + xDegree, 360 - xDegree, false, paint);
+
+        float resultDegree = bearPercentage / 100 * (360 - xDegree);
+        paint.setColor(getResources().getColor(R.color.blue));
+        canvas.drawArc(reft, startPoint + xDegree, resultDegree, false, paint);
 
 
         float reftTOP = cy + useDegreeToCalculateTheHeight(startPoint, radius);
