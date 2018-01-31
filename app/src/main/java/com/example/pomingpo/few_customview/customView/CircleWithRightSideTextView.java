@@ -31,7 +31,8 @@ public class CircleWithRightSideTextView extends View {
         // TODO: 30/1/2018 calculate the xDegree from high A
 
 //        sine@=(heighA/2)/radius
-        float xDegree = (float) Math.asin((heighA / 2) / radius);
+        double d = Math.asin((heighA / 2) / radius);
+        float xDegree = (float) Math.toDegrees(d) * 2;
 //        float xDegree = 40;
         float startPoint = 20;
         paint.setStyle(Paint.Style.STROKE);
