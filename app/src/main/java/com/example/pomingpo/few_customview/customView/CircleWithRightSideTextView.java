@@ -44,6 +44,24 @@ public class CircleWithRightSideTextView extends View {
         paint.setColor(getResources().getColor(R.color.blue));
         canvas.drawArc(reft, startPoint + xDegree, 360 - xDegree, false, paint);
 
+        float cx = top + radius;
+        float cy = left + radius;
+
+
+        float reftTOP = cy + useDegreeToCalculateTheHeight(startPoint, radius);
+        float reftBottom = reftTOP + heighA;
+        //        temp
+        float reftLeft = cx;
+//        temp
+        float reftRight = reftLeft + 300;
+
+
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(3);
+        paint.setColor(getResources().getColor(R.color.colorAccent));
+        canvas.drawRect(reftLeft, reftTOP, reftRight, reftBottom, paint);
+
+
     }
 
 
@@ -52,5 +70,10 @@ public class CircleWithRightSideTextView extends View {
         float xDegree = (float) Math.toDegrees(d) * 2;
 
         return xDegree * 1.25f;
+    }
+
+    private float useDegreeToCalculateTheHeight(float degree, float radius) {
+
+        return (float) (Math.tan(Math.toRadians(degree)) * radius);
     }
 }
