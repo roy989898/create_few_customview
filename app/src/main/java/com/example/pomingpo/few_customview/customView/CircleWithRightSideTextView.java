@@ -31,8 +31,7 @@ public class CircleWithRightSideTextView extends View {
         // TODO: 30/1/2018 calculate the xDegree from high A
 
 //        sine@=(heighA/2)/radius
-        double d = Math.asin((heighA / 2) / radius);
-        float xDegree = (float) Math.toDegrees(d) * 2;
+        float xDegree = useHeightToCalcuateTheDegree(heighA, radius);
 //        float xDegree = 40;
         float startPoint = 20;
         paint.setStyle(Paint.Style.STROKE);
@@ -45,5 +44,13 @@ public class CircleWithRightSideTextView extends View {
         paint.setColor(getResources().getColor(R.color.blue));
         canvas.drawArc(reft, startPoint + xDegree, 360 - xDegree, false, paint);
 
+    }
+
+
+    private float useHeightToCalcuateTheDegree(float height, float radius) {
+        double d = Math.asin((height / 2) / radius);
+        float xDegree = (float) Math.toDegrees(d) * 2;
+
+        return xDegree * 1.25f;
     }
 }
