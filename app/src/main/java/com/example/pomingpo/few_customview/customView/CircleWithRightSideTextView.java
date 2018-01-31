@@ -29,19 +29,19 @@ public class CircleWithRightSideTextView extends View {
         float radius = 120;
         float heighA = 30;
         float storkWidth = 30;
-        // TODO: 30/1/2018 calculate the xDegree from high A
-
-//        sine@=(heighA/2)/radius
-        float xDegree = useHeightToCalcuateTheDegree(heighA, radius);
-//        float xDegree = 40;
-        float startPoint = 20;
-        paint.setStyle(Paint.Style.STROKE);
         float left = 0 + storkWidth;
         float top = 0 + storkWidth;
         float right = left + radius * 2 + storkWidth;
         float bootom = top + radius * 2 + storkWidth;
         float cx = left + (right - left) / 2;
         float cy = top + (bootom - top) / 2;
+        //  calculate the xDegree from high A
+
+//        sine@=(heighA/2)/radius
+        float xDegree = useHeightToCalcuateTheDegree(heighA, radius);
+//        float xDegree = 40;
+        float startPoint = 20;
+        paint.setStyle(Paint.Style.STROKE);
 
 
         RectF reft = new RectF(left, top, right, bootom);
