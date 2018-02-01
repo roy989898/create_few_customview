@@ -47,14 +47,14 @@ public class CircleWithRightSideTextView extends View {
 
         textPaint3 = new Paint(Paint.ANTI_ALIAS_FLAG);
         int thirdLineTextColor = getResources().getColor(R.color.dark);
-        float thirdLinetextSize = 5;
+        float thirdLinetextSize = 15;
         textPaint3.setColor(thirdLineTextColor);
         textPaint3.setTextAlign(Paint.Align.CENTER);
         textPaint3.setTextSize(thirdLinetextSize);
 
         textPaint4 = new Paint(Paint.ANTI_ALIAS_FLAG);
         int fourthLineTextColor = getResources().getColor(R.color.dark);
-        float fourthLinetextSize = 7;
+        float fourthLinetextSize = 20;
         textPaint4.setColor(fourthLineTextColor);
         textPaint4.setTextAlign(Paint.Align.CENTER);
         textPaint4.setTextSize(fourthLinetextSize);
@@ -65,7 +65,7 @@ public class CircleWithRightSideTextView extends View {
         super.onDraw(canvas);
 
         float radius = 120;
-        float heighA = 30;
+//        float heighA = 30;
         float storkWidth = 30;
         float left = 0 + storkWidth;
         float top = 0 + storkWidth;
@@ -74,6 +74,52 @@ public class CircleWithRightSideTextView extends View {
         float cx = left + (right - left) / 2;
         float cy = top + (bootom - top) / 2;
         float bearPercentage = 80;
+        Paint.FontMetrics fmForThirdLineOfText = textPaint3.getFontMetrics();
+        float yoffset3 = -fmForThirdLineOfText.ascent + fmForThirdLineOfText.descent;
+
+
+        Paint.FontMetrics fmForFourthLineText = textPaint4.getFontMetrics();
+        float yoffest4 = -fmForFourthLineText.ascent + fmForFourthLineText.descent;
+
+
+        float heighA = yoffset3 + yoffest4 + intertwoTextSpace;
+
+
+        float xDegree = useHeightToCalcuateTheDegree(heighA, radius);
+//        float xDegree = 40;
+        float startPoint = 20;
+        paint.setStyle(Paint.Style.STROKE);
+
+
+        RectF reft = new RectF(left, top, right, bootom);
+        paint.setStrokeWidth(storkWidth);
+        paint.setColor(getResources().getColor(R.color.gray_deep));
+        canvas.drawArc(reft, startPoint + xDegree, 360 - xDegree, false, paint);
+
+        float resultDegree = bearPercentage / 100 * (360 - xDegree);
+        paint.setColor(getResources().getColor(R.color.blue));
+        canvas.drawArc(reft, startPoint + xDegree, resultDegree, false, paint);
+
+
+        float reftTOP = cy + useDegreeToCalculateTheHeight(startPoint, radius);
+        float reftBottom = reftTOP + heighA;
+//        float reftLeft = cx;
+//        float reftRight = reftLeft + 300;
+
+    /*    paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(3);
+        paint.setColor(getResources().getColor(R.color.colorAccent));
+        canvas.drawRect(reftLeft, reftTOP, reftRight, reftBottom, paint);*/
+
+
+//         draw two line of text at the right side
+
+
+        float y3 = reftBottom + (-yoffset3 - intertwoTextSpace);
+        float y4 = reftBottom;
+        canvas.drawText(thirdLineOfText, cx + radius, y3 - fmForThirdLineOfText.descent, textPaint3);
+        canvas.drawText(fourthLineOfText, cx + radius, y4 - fmForThirdLineOfText.descent, textPaint4);
+//         draw two line of text at the right side
 
         //  draw two line of text at the center
 
@@ -93,52 +139,6 @@ public class CircleWithRightSideTextView extends View {
 
         //  calculate the xDegree from high A
 //        sine@=(heighA/2)/radius
-        float xDegree = useHeightToCalcuateTheDegree(heighA, radius);
-//        float xDegree = 40;
-        float startPoint = 20;
-        paint.setStyle(Paint.Style.STROKE);
-
-
-        RectF reft = new RectF(left, top, right, bootom);
-        paint.setStrokeWidth(storkWidth);
-        paint.setColor(getResources().getColor(R.color.gray_deep));
-        canvas.drawArc(reft, startPoint + xDegree, 360 - xDegree, false, paint);
-
-        float resultDegree = bearPercentage / 100 * (360 - xDegree);
-        paint.setColor(getResources().getColor(R.color.blue));
-        canvas.drawArc(reft, startPoint + xDegree, resultDegree, false, paint);
-
-
-        float reftTOP = cy + useDegreeToCalculateTheHeight(startPoint, radius);
-        float reftBottom = reftTOP + heighA;
-        float reftLeft = cx;
-        float reftRight = reftLeft + 300;
-
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(3);
-        paint.setColor(getResources().getColor(R.color.colorAccent));
-        canvas.drawRect(reftLeft, reftTOP, reftRight, reftBottom, paint);
-
-
-//        todo draw two line of text at the right side
-
-        Paint.FontMetrics fmForThirdLineOfText = textPaint3.getFontMetrics();
-        float yoffset3 = -fmForThirdLineOfText.ascent + fmForThirdLineOfText.descent;
-
-
-        Paint.FontMetrics fmForFourthLineText = textPaint4.getFontMetrics();
-        float yoffest4 = -fmForFourthLineText.ascent + fmForFourthLineText.descent;
-
-
-        float rightSidetotlaYOffset = yoffset3 + yoffest4 + intertwoTextSpace;
-        float y3 = reftTOP + (rightSidetotlaYOffset / 2f - yoffset3 - intertwoTextSpace);
-        float y4 = reftTOP + rightSidetotlaYOffset / 2f;
-        canvas.drawText(thirdLineOfText, cx+radius, y3 - fmForThirdLineOfText.descent, textPaint3);
-        canvas.drawText(fourthLineOfText, cx+radius, y4 - fmForThirdLineOfText.descent, textPaint4);
-
-
-
-
 
 
     }
