@@ -67,10 +67,10 @@ public class CircleWithRightSideTextView extends View {
         float radius = 120;
 //        float heighA = 30;
         float storkWidth = 30;
-        float left = 0 + storkWidth;
-        float top = 0 + storkWidth;
-        float right = left + radius * 2 + storkWidth;
-        float bootom = top + radius * 2 + storkWidth;
+        float left = 0 + storkWidth/2;
+        float top = 0 + storkWidth/2;
+        float right = left + radius * 2 + storkWidth/2;
+        float bootom = top + radius * 2 + storkWidth/2;
         float cx = left + (right - left) / 2;
         float cy = top + (bootom - top) / 2;
         float bearPercentage = 80;
