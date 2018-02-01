@@ -145,6 +145,8 @@ public class CircleWithRightSideTextView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+// TODO: 1/2/2018 miniWidth= longetsText+spaceinnter_text_stork+stork/2+stork/2+right_text_long3/4
+        
         int miniWidth = 0;
         int miniHeight = 0;
         int measuredWidth = miniWidth + getPaddingLeft() + getPaddingRight();
