@@ -98,16 +98,14 @@ public class CircleWithRightSideTextView extends View {
 
         float reftTOP = cy + useDegreeToCalculateTheHeight(startPoint, radius);
         float reftBottom = reftTOP + heighA;
-        //        temp
         float reftLeft = cx;
-//        temp
         float reftRight = reftLeft + 300;
-
 
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(3);
         paint.setColor(getResources().getColor(R.color.colorAccent));
         canvas.drawRect(reftLeft, reftTOP, reftRight, reftBottom, paint);
+        
 
 
     }
