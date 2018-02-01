@@ -143,6 +143,17 @@ public class CircleWithRightSideTextView extends View {
 
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int miniWidth = 0;
+        int miniHeight = 0;
+        int measuredWidth = miniWidth + getPaddingLeft() + getPaddingRight();
+        measuredWidth = resolveSize(measuredWidth, widthMeasureSpec);
+        int noPaddingmeasureWidth = measuredWidth - (getPaddingLeft() + getPaddingRight());
+        int noPaddingmeasureHeight = noPaddingmeasureWidth;
+        int measuredHeight = noPaddingmeasureHeight + getPaddingBottom() + getPaddingTop();
+        setMeasuredDimension(measuredWidth, measuredHeight);
+    }
 
     private float useHeightToCalcuateTheDegree(float height, float radius) {
         double d = Math.asin((height / 2) / radius);
