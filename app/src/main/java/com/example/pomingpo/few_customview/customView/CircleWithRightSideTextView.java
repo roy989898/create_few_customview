@@ -17,8 +17,14 @@ import com.example.pomingpo.few_customview.R;
 public class CircleWithRightSideTextView extends View {
     private final Paint textPaint1;
     private final Paint textPaint2;
+    private final Paint textPaint3;
+    private final Paint textPaint4;
     private Paint paint;
-    private float intertwoTextSpace=5;
+    private float intertwoTextSpace = 5;
+    private String firstLineOftext = "Outstanding Balance";
+    private String secondLineOfText = "$100,000";
+    private String thirdLineOfText = "Credit Limit";
+    private String fourthLineOfText = "$5000,000";
 
     public CircleWithRightSideTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -37,6 +43,21 @@ public class CircleWithRightSideTextView extends View {
         textPaint2.setColor(secondLineTextColor);
         textPaint2.setTextAlign(Paint.Align.CENTER);
         textPaint2.setTextSize(secondLinetextSize);
+
+
+        textPaint3 = new Paint(Paint.ANTI_ALIAS_FLAG);
+        int thirdLineTextColor = getResources().getColor(R.color.dark);
+        float thirdLinetextSize = 5;
+        textPaint3.setColor(thirdLineTextColor);
+        textPaint3.setTextAlign(Paint.Align.CENTER);
+        textPaint3.setTextSize(thirdLinetextSize);
+
+        textPaint4 = new Paint(Paint.ANTI_ALIAS_FLAG);
+        int fourthLineTextColor = getResources().getColor(R.color.dark);
+        float fourthLinetextSize = 7;
+        textPaint4.setColor(fourthLineTextColor);
+        textPaint4.setTextAlign(Paint.Align.CENTER);
+        textPaint4.setTextSize(fourthLinetextSize);
     }
 
     @Override
@@ -54,20 +75,12 @@ public class CircleWithRightSideTextView extends View {
         float cy = top + (bootom - top) / 2;
         float bearPercentage = 80;
 
-        // TODO: 31/1/2018 draw two line of text at the center
-        String firstLineOftext = "Outstanding Balance";
-        String secondLineOfText = "$100,000";
+        //  draw two line of text at the center
 
-        //        Rect rect1 = new Rect();
-
-//        textPaint1.getTextBounds(firstLineText, 0, firstLineText.length(), rect1);
         Paint.FontMetrics fmForFirstLineText = textPaint1.getFontMetrics();
         float yOffset1 = -fmForFirstLineText.ascent + fmForFirstLineText.descent;
 
 
-//        Rect rect2 = new Rect();
-
-//        textPaint2.getTextBounds(secondLineText, 0, secondLineText.length(), rect2);
         Paint.FontMetrics fmForSecondLineText = textPaint2.getFontMetrics();
         float yOffset2 = -fmForSecondLineText.ascent + fmForSecondLineText.descent;
 
@@ -105,7 +118,27 @@ public class CircleWithRightSideTextView extends View {
         paint.setStrokeWidth(3);
         paint.setColor(getResources().getColor(R.color.colorAccent));
         canvas.drawRect(reftLeft, reftTOP, reftRight, reftBottom, paint);
-        
+
+
+//        todo draw two line of text at the right side
+
+        Paint.FontMetrics fmForThirdLineOfText = textPaint3.getFontMetrics();
+        float yoffset3 = -fmForThirdLineOfText.ascent + fmForThirdLineOfText.descent;
+
+
+        Paint.FontMetrics fmForFourthLineText = textPaint4.getFontMetrics();
+        float yoffest4 = -fmForFourthLineText.ascent + fmForFourthLineText.descent;
+
+
+        float rightSidetotlaYOffset = yoffset3 + yoffest4 + intertwoTextSpace;
+        float y3 = reftTOP + (rightSidetotlaYOffset / 2f - yoffset3 - intertwoTextSpace);
+        float y4 = reftTOP + rightSidetotlaYOffset / 2f;
+        canvas.drawText(thirdLineOfText, cx+radius, y3 - fmForThirdLineOfText.descent, textPaint3);
+        canvas.drawText(fourthLineOfText, cx+radius, y4 - fmForThirdLineOfText.descent, textPaint4);
+
+
+
+
 
 
     }
