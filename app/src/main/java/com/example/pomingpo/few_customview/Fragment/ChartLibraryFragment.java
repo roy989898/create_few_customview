@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.pomingpo.few_customview.CustomCmarker.MyMarkerView;
 import com.example.pomingpo.few_customview.CustomFormatter.MyXAxisValueFormatter;
 import com.example.pomingpo.few_customview.R;
 import com.github.mikephil.charting.charts.LineChart;
@@ -60,10 +61,12 @@ public class ChartLibraryFragment extends Fragment {
         MarkerImage marker = new MarkerImage(getContext(), R.mipmap.ic_launcher);
         chart.setMarker(marker);
 
+*/
+        MyMarkerView mv = new MyMarkerView(getContext(), R.layout.custom_marker_view);
+        chart.setMarker(mv);
+
 
         chart.invalidate(); // refresh
-*/
-
 
         return view;
     }
