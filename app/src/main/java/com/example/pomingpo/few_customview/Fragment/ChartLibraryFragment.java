@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.example.pomingpo.few_customview.CustomFormatter.MyXAxisValueFormatter;
 import com.example.pomingpo.few_customview.R;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.MarkerImage;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -51,7 +52,17 @@ public class ChartLibraryFragment extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setValueFormatter(new MyXAxisValueFormatter());
         xAxis.setSpaceMin(1);
+
+
+/*
+//        set the click popup temp
+
+        MarkerImage marker = new MarkerImage(getContext(), R.mipmap.ic_launcher);
+        chart.setMarker(marker);
+
+
         chart.invalidate(); // refresh
+*/
 
 
         return view;
