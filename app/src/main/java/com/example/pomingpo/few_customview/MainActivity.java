@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.pomingpo.few_customview.Fragment.ChartLibraryFragment;
 import com.example.pomingpo.few_customview.Fragment.CircleInsideHaveTextView1Fragment;
 import com.example.pomingpo.few_customview.Fragment.Fragment2;
 import com.example.pomingpo.few_customview.Fragment.Fragment3;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new CircleInsideHaveTextView1Fragment());
         list.add(new Fragment2());
         list.add(new Fragment3());
+        list.add(new ChartLibraryFragment());
         return list;
 
     }
