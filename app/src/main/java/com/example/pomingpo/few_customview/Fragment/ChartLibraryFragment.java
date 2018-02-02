@@ -53,6 +53,7 @@ public class ChartLibraryFragment extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setValueFormatter(new MyXAxisValueFormatter());
         xAxis.setSpaceMin(1);
+        xAxis.setSpaceMax(1);
 
 
 /*
