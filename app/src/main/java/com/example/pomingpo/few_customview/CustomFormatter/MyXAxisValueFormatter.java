@@ -14,12 +14,14 @@ public class MyXAxisValueFormatter implements IAxisValueFormatter {
 
     @Override
     public String getFormattedValue(float value, AxisBase axis) {
-        Date dNow = new Date((long) value);
+      /*  Date dNow = new Date((long) value);
         SimpleDateFormat ft =
                 new SimpleDateFormat("MMMyyyy");
 
 
-        return ft.format(dNow);
+        return ft.format(dNow);*/
+
+        return value + "";
     }
 
 }
