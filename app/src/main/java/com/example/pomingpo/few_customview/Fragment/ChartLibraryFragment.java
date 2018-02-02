@@ -82,6 +82,7 @@ public class ChartLibraryFragment extends Fragment {
 
 
         LineDataSet dataSet = new LineDataSet(entries, "Label");
+        dataSet.setColors(new int[]{R.color.blue, R.color.green}, getContext());
         LineData lineData = new LineData(dataSet);
         return lineData;
 
