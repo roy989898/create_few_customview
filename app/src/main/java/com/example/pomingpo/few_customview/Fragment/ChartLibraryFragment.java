@@ -46,9 +46,11 @@ public class ChartLibraryFragment extends Fragment {
 
         chart.setData(createData());
         chart.getAxisRight().setEnabled(false);
-        chart.getXAxis().setDrawGridLines(false);
-        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        chart.getXAxis().setValueFormatter(new MyXAxisValueFormatter());
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setDrawGridLines(false);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setValueFormatter(new MyXAxisValueFormatter());
+        xAxis.setSpaceMin(1);
         chart.invalidate(); // refresh
 
 
