@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.example.pomingpo.few_customview.R;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -43,6 +44,9 @@ public class ChartLibraryFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
 
         chart.setData(createData());
+        chart.getAxisRight().setEnabled(false);
+        chart.getXAxis().setDrawGridLines(false);
+        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         chart.invalidate(); // refresh
 
 
