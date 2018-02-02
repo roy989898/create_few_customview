@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.pomingpo.few_customview.CustomFormatter.MyXAxisValueFormatter;
 import com.example.pomingpo.few_customview.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -47,6 +48,7 @@ public class ChartLibraryFragment extends Fragment {
         chart.getAxisRight().setEnabled(false);
         chart.getXAxis().setDrawGridLines(false);
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+        chart.getXAxis().setValueFormatter(new MyXAxisValueFormatter());
         chart.invalidate(); // refresh
 
 
