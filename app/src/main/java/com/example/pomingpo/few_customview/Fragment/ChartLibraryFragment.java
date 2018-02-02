@@ -65,7 +65,7 @@ public class ChartLibraryFragment extends Fragment {
 
     private LineData createData() {
         List<Entry> entries = new ArrayList<Entry>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             entries.add(new Entry(i, i * i));
         }
 
