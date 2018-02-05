@@ -9,6 +9,7 @@ import com.example.pomingpo.few_customview.Fragment.ChartLibraryFragment;
 import com.example.pomingpo.few_customview.Fragment.CircleInsideHaveTextView1Fragment;
 import com.example.pomingpo.few_customview.Fragment.Fragment2;
 import com.example.pomingpo.few_customview.Fragment.Fragment3;
+import com.example.pomingpo.few_customview.Fragment.Fragment4;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Fragment2());
         list.add(new Fragment3());
         list.add(new ChartLibraryFragment());
+        list.add(new Fragment4());
         return list;
 
     }
