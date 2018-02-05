@@ -5,7 +5,7 @@
     android:orientation="vertical"
     tools:context="com.example.pomingpo.few_customview.Fragment.Fragment3">
 
-    <com.example.pomingpo.few_customview.customView.CircleWithRightSideTextView
+    <hk.com.poming.fewcustomviewlibrary.customView.CircleWithRightSideTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

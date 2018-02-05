@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleInsideHaveTextView1">
+        <attr name="percentage" format="float" />
+        <attr name="storkWidth" format="dimension" />
+        <attr name="storkColor" format="color" />
+        <attr name="innerTextSize" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="PercentageCirclewithTwoLineText">
+        <!--set percentage-->
+        <attr name="pc_percentage" format="float" />
+        <!--set first line text color-->
+        <attr name="pc_first_line_color" format="color" />
+        <!--set first line text size-->
+        <attr name="pc_first_line_text_size" format="dimension" />
+
+
+        <!--set second line text-->
+        <attr name="pc_second_line_text" format="string" />
+        <attr name="pc_longest_second_line_text" format="string" />
+        <!--set second line text color-->
+        <attr name="pc_second_line_color" format="color" />
+        <!--set second line text size-->
+        <attr name="pc_second_line_text_size" format="dimension" />
+
+
+        <!--set stork color-->
+        <attr name="pc_stork_color" format="color" />
+        <!--set stork width-->
+        <attr name="pc_stork_width" format="dimension" />
+
+    </declare-styleable>
+
+</resources>

@@ -11,12 +11,13 @@ import android.widget.EditText;
 
 import com.example.pomingpo.few_customview.R;
 import com.example.pomingpo.few_customview.Util;
-import com.example.pomingpo.few_customview.customView.PercentageCirclewithTwoLineText;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import hk.com.poming.fewcustomviewlibrary.customView.PercentageCirclewithTwoLineText;
 
 /**
  * A simple {@link Fragment} subclass.

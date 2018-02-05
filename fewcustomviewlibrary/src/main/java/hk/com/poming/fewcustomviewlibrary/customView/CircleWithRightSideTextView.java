@@ -1,4 +1,4 @@
-package com.example.pomingpo.few_customview.customView;
+package hk.com.poming.fewcustomviewlibrary.customView;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,7 +8,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.pomingpo.few_customview.R;
+import hk.com.poming.fewcustomviewlibrary.R;
+
 
 /**
  * Created by roy.leung on 30/1/2018.

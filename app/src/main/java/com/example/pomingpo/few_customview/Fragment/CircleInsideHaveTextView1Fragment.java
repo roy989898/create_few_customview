@@ -10,7 +10,8 @@ import android.widget.Button;
 
 import com.example.pomingpo.few_customview.R;
 import com.example.pomingpo.few_customview.Util;
-import com.example.pomingpo.few_customview.customView.CircleInsideHaveTextView1;
+
+import hk.com.poming.fewcustomviewlibrary.customView.CircleInsideHaveTextView1;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

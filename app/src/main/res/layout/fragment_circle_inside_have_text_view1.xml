@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.pomingpo.few_customview.Fragment.CircleInsideHaveTextView1Fragment">
 
-    <com.example.pomingpo.few_customview.customView.CircleInsideHaveTextView1
+    <hk.com.poming.fewcustomviewlibrary.customView.CircleInsideHaveTextView1
         android:id="@+id/cv1_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -21,7 +21,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content" />
 
-     <com.example.pomingpo.few_customview.customView.PercentageCirclewithTwoLineText
+  hk.com.poming.fewcustomviewlibrary.customViewView.PercentageCirclewithTwoLineText
          android:layout_width="wrap_content"
          android:layout_height="wrap_content" />
  </LinearLayout>
@@ -30,7 +30,7 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="asdad" />-->
-    <com.example.pomingpo.few_customview.customView.PercentageCirclewithTwoLineText
+    <hk.com.poming.fewcustomviewlibrary.customView.PercentageCirclewithTwoLineText
         android:id="@+id/pc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
