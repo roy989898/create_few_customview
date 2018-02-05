@@ -30,8 +30,8 @@ public class CircleImageView extends ImageView {
         float x = 0;
         float y = 0;
 
-        float cx = x + radius;
-        float cy = y + radius;
+        float cx = x + getMeasuredWidth() / 2;
+        float cy = y + getMeasuredHeight() / 2;
         Path path = new Path();
         path.addCircle(cx, cy, radius, Path.Direction.CCW);
         canvas.clipPath(path);
