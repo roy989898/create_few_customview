@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.pomingpo.few_customview.Fragment.Fragment4">
 
-   <hk.com.poming.fewcustomviewlibrary.customView.CircleImageView
-       android:layout_width="wrap_content"
-       android:id="@+id/iv_circle"
-       android:layout_height="wrap_content" />
+    <hk.com.poming.fewcustomviewlibrary.customView.CircleImageView
+        android:id="@+id/iv_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </FrameLayout>
